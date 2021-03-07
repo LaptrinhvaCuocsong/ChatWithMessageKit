@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,10 @@
 		182C6DA425F4A9E70001B410 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 182C6DA225F4A9E70001B410 /* Main.storyboard */; };
 		182C6DA625F4A9E90001B410 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 182C6DA525F4A9E90001B410 /* Assets.xcassets */; };
 		182C6DA925F4A9E90001B410 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 182C6DA725F4A9E90001B410 /* LaunchScreen.storyboard */; };
+		182C6DB125F4B6680001B410 /* MessageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182C6DB025F4B6680001B410 /* MessageController.swift */; };
+		182C6DB425F4E1FD0001B410 /* SlackInputBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182C6DB325F4E1FD0001B410 /* SlackInputBar.swift */; };
+		182C6DB625F4E2310001B410 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182C6DB525F4E2310001B410 /* User.swift */; };
+		182C6DB825F4E23E0001B410 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182C6DB725F4E23E0001B410 /* Message.swift */; };
 		7B8ACC41AE0763CDA48E5D2A /* Pods_ChatWithMessageKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7AD5EF4849CE2466831FD28 /* Pods_ChatWithMessageKit.framework */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +29,10 @@
 		182C6DA525F4A9E90001B410 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		182C6DA825F4A9E90001B410 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		182C6DAA25F4A9E90001B410 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		182C6DB025F4B6680001B410 /* MessageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageController.swift; sourceTree = "<group>"; };
+		182C6DB325F4E1FD0001B410 /* SlackInputBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlackInputBar.swift; sourceTree = "<group>"; };
+		182C6DB525F4E2310001B410 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		182C6DB725F4E23E0001B410 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		8FBA05FC70224484BE368853 /* Pods-ChatWithMessageKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatWithMessageKit.debug.xcconfig"; path = "Target Support Files/Pods-ChatWithMessageKit/Pods-ChatWithMessageKit.debug.xcconfig"; sourceTree = "<group>"; };
 		952EF06CDD0927C02FA53899 /* Pods-ChatWithMessageKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatWithMessageKit.release.xcconfig"; path = "Target Support Files/Pods-ChatWithMessageKit/Pods-ChatWithMessageKit.release.xcconfig"; sourceTree = "<group>"; };
 		D7AD5EF4849CE2466831FD28 /* Pods_ChatWithMessageKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChatWithMessageKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,15 +71,27 @@
 		182C6D9B25F4A9E70001B410 /* ChatWithMessageKit */ = {
 			isa = PBXGroup;
 			children = (
+				182C6DB225F4E1EB0001B410 /* InputBar */,
 				182C6D9C25F4A9E70001B410 /* AppDelegate.swift */,
 				182C6D9E25F4A9E70001B410 /* SceneDelegate.swift */,
 				182C6DA025F4A9E70001B410 /* ViewController.swift */,
+				182C6DB025F4B6680001B410 /* MessageController.swift */,
 				182C6DA225F4A9E70001B410 /* Main.storyboard */,
 				182C6DA525F4A9E90001B410 /* Assets.xcassets */,
 				182C6DA725F4A9E90001B410 /* LaunchScreen.storyboard */,
 				182C6DAA25F4A9E90001B410 /* Info.plist */,
+				182C6DB525F4E2310001B410 /* User.swift */,
+				182C6DB725F4E23E0001B410 /* Message.swift */,
 			);
 			path = ChatWithMessageKit;
+			sourceTree = "<group>";
+		};
+		182C6DB225F4E1EB0001B410 /* InputBar */ = {
+			isa = PBXGroup;
+			children = (
+				182C6DB325F4E1FD0001B410 /* SlackInputBar.swift */,
+			);
+			path = InputBar;
 			sourceTree = "<group>";
 		};
 		5AB59943EDB68566E0F96B8F /* Frameworks */ = {
@@ -88,7 +108,6 @@
 				8FBA05FC70224484BE368853 /* Pods-ChatWithMessageKit.debug.xcconfig */,
 				952EF06CDD0927C02FA53899 /* Pods-ChatWithMessageKit.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -207,9 +226,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				182C6DB425F4E1FD0001B410 /* SlackInputBar.swift in Sources */,
 				182C6DA125F4A9E70001B410 /* ViewController.swift in Sources */,
+				182C6DB625F4E2310001B410 /* User.swift in Sources */,
 				182C6D9D25F4A9E70001B410 /* AppDelegate.swift in Sources */,
 				182C6D9F25F4A9E70001B410 /* SceneDelegate.swift in Sources */,
+				182C6DB125F4B6680001B410 /* MessageController.swift in Sources */,
+				182C6DB825F4E23E0001B410 /* Message.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
